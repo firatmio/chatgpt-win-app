@@ -6,8 +6,8 @@ This project is a desktop application for ChatGPT built using Electron.js. The a
 
 ## Features
 - Seamlessly integrates ChatGPT into a desktop environment.
-- Cross-platform support (Windows, macOS, Linux).
 - Lightweight and easy to use.
+- Shortcuts that make navigation easier.
 
 ---
 
