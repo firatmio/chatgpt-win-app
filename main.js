@@ -1,7 +1,7 @@
-const { app, BrowserWindow, globalShortcut } = require('electron')
+const { app, BrowserWindow } = require('electron')
 const path = require('path')
 
-let mainWindow; // Pencere referansını global olarak tutuyoruz
+let mainWindow;
 
 function createWindow() {
     mainWindow = new BrowserWindow({
@@ -25,22 +25,21 @@ function createWindow() {
         )
     })
 
-    // Kısayol tuşlarını tanımlıyoruz
-    globalShortcut.register('Alt+Left', () => {
-        if (mainWindow.webContents.canGoBack()) {
-            mainWindow.webContents.goBack()
+    // Lokalize edilmiş kısayol kontrolü
+    mainWindow.webContents.on('before-input-event', (event, input) => {
+        if (input.key === 'F5') {
+            mainWindow.webContents.reload()
         }
-    })
-
-    globalShortcut.register('Alt+Right', () => {
-        if (mainWindow.webContents.canGoForward()) {
-            mainWindow.webContents.goForward()
+        else if (input.alt && input.key === 'ArrowLeft') {
+            if (mainWindow.webContents.canGoBack()) {
+                mainWindow.webContents.goBack()
+            }
         }
-    })
-
-    // F5 ile sayfa yenileme kısayolu
-    globalShortcut.register('F5', () => {
-        mainWindow.webContents.reload()
+        else if (input.alt && input.key === 'ArrowRight') {
+            if (mainWindow.webContents.canGoForward()) {
+                mainWindow.webContents.goForward()
+            }
+        }
     })
 }
 
