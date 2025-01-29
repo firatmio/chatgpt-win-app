@@ -40,7 +40,7 @@ Follow these steps to set up and run the application:
 
 ## File Structure
 ```
-chatgpt-desktop/
+chatgpt-win-app/
 ├── package.json    # Project dependencies and scripts
 ├── main.js         # Main process script for Electron
 ├── index.html      # Fallback HTML file (if needed)
