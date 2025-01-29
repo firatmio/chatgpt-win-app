@@ -23,7 +23,7 @@ Follow these steps to set up and run the application:
 1. Clone the repository:
    ```bash
    git clone https://github.com/e500ky/chatgpt-win-app.git
-   cd chatgpt-desktop
+   cd chatgpt-win-app
    ```
 
 2. Install dependencies:
