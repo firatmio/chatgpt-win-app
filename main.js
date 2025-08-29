@@ -15,7 +15,6 @@ function createWindow() {
     mainWindow.loadURL('https://www.chatgpt.com')
     mainWindow.setMenu(null)
 
-    // CSS enjekte etme
     mainWindow.webContents.on('did-finish-load', () => {
         mainWindow.webContents.insertCSS(
             require('fs').readFileSync(
@@ -25,7 +24,6 @@ function createWindow() {
         )
     })
 
-    // Lokalize edilmiş kısayol kontrolü
     mainWindow.webContents.on('before-input-event', (event, input) => {
         if (input.key === 'F5') {
             mainWindow.webContents.reload()
@@ -43,7 +41,6 @@ function createWindow() {
     })
 }
 
-// Uygulama kapanırken kısayolları temizleme
 app.on('will-quit', () => {
     globalShortcut.unregisterAll()
 })
@@ -72,3 +69,4 @@ app.on('activate', () => {
         createWindow()
     }
 });
+
